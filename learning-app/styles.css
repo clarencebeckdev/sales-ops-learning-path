@@ -180,6 +180,57 @@ body {
   color: #f97373;
 }
 
+.flashcards-panel {
+  margin-top: 8px;
+  padding-top: 8px;
+  border-top: 1px solid rgba(31,41,55,1);
+}
+
+.flashcard {
+  border-radius: 10px;
+  border: 1px solid rgba(55,65,81,1);
+  padding: 10px 12px;
+  background: #020617;
+}
+
+.flashcard-term {
+  font-size: 14px;
+  font-weight: 600;
+  margin-bottom: 4px;
+}
+
+.flashcard-definition {
+  font-size: 13px;
+  color: #d1d5db;
+}
+
+.flashcard-controls {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 6px;
+  margin-top: 8px;
+}
+
+.flashcard-btn {
+  border-radius: 999px;
+  border: 1px solid rgba(148,163,184,0.7);
+  background: #020617;
+  color: #e5e7eb;
+  padding: 3px 9px 4px;
+  font-size: 12px;
+  cursor: pointer;
+}
+
+.flashcard-btn.secondary {
+  border-color: rgba(55,65,81,1);
+}
+
+.flashcard-stats {
+  margin-top: 6px;
+  font-size: 12px;
+  color: #9ca3af;
+}
+
 .app-footer {
   display: flex;
   align-items: center;

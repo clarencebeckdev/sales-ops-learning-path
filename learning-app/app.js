@@ -5,6 +5,7 @@
   const moduleMetaEl = document.getElementById('module-meta');
   const moduleContentEl = document.getElementById('module-content');
   const quizEl = document.getElementById('quiz');
+  const flashcardsEl = document.getElementById('flashcards');
   const prevBtn = document.getElementById('prev-btn');
   const nextBtn = document.getElementById('next-btn');
   const progressEl = document.getElementById('progress');
@@ -23,6 +24,34 @@
   function renderSidebar() {
     const sections = groupBySection(MODULES);
     sidebarEl.innerHTML = '';
+
+    // Flashcards entry
+    const flashTitle = document.createElement('div');
+    flashTitle.className = 'sidebar-section-title';
+    flashTitle.textContent = 'Practice';
+    sidebarEl.appendChild(flashTitle);
+
+    const flashItem = document.createElement('div');
+    flashItem.className = 'sidebar-item';
+    flashItem.dataset.id = 'flashcards';
+
+    const flashLabel = document.createElement('div');
+    flashLabel.className = 'sidebar-item-label';
+    flashLabel.textContent = 'Flashcard Game';
+
+    const flashTag = document.createElement('div');
+    flashTag.className = 'sidebar-item-tag';
+    flashTag.textContent = 'terms & acronyms';
+
+    flashItem.appendChild(flashLabel);
+    flashItem.appendChild(flashTag);
+
+    flashItem.addEventListener('click', () => {
+      currentIndex = -1; // special index for flashcards
+      renderModule();
+    });
+
+    sidebarEl.appendChild(flashItem);
 
     Object.entries(sections).forEach(([sectionName, items]) => {
       const title = document.createElement('div');
@@ -122,6 +151,28 @@
   }
 
   function renderModule() {
+    if (currentIndex === -1) {
+      // flashcards mode
+      const items = sidebarEl.querySelectorAll('.sidebar-item');
+      items.forEach((item) => {
+        if (item.dataset.id === 'flashcards') item.classList.add('active');
+        else item.classList.remove('active');
+      });
+
+      moduleMetaEl.textContent = 'Practice • flashcards';
+      moduleContentEl.innerHTML = '<h1>Flashcard Game</h1><p>Test yourself on key sales ops terms and acronyms. Try to recall the definition, then reveal it and mark whether you knew it.</p>';
+      quizEl.classList.add('hidden');
+      quizEl.innerHTML = '';
+      flashcardsEl.classList.remove('hidden');
+      flashcardsEl.innerHTML = '';
+      initFlashcards('flashcards');
+
+      progressEl.textContent = 'Practice mode';
+      prevBtn.disabled = false;
+      nextBtn.disabled = false;
+      return;
+    }
+
     const module = MODULES[currentIndex];
     if (!module) return;
 
@@ -131,6 +182,9 @@
       if (item.dataset.id === module.id) item.classList.add('active');
       else item.classList.remove('active');
     });
+
+    flashcardsEl.classList.add('hidden');
+    flashcardsEl.innerHTML = '';
 
     moduleMetaEl.textContent = `${module.section} • ${module.tag}`;
     moduleContentEl.innerHTML = module.content;
@@ -157,5 +211,6 @@
 
   // init
   renderSidebar();
+  currentIndex = 0;
   renderModule();
 })();
