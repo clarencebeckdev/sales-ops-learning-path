@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Sales Ops Learning Path</title>
+  <link rel="stylesheet" href="styles.css" />
+</head>
+<body>
+  <div class="app-shell">
+    <header class="app-header">
+      <div class="app-title">Sales Ops Learning Path</div>
+      <div class="app-subtitle">Interactive walkthrough of the core concepts in this repo.</div>
+    </header>
+
+    <main class="app-main">
+      <aside class="sidebar" id="sidebar"></aside>
+
+      <section class="content">
+        <div id="module-meta" class="module-meta"></div>
+        <article id="module-content" class="module-content"></article>
+        <section id="quiz" class="quiz hidden"></section>
+      </section>
+    </main>
+
+    <footer class="app-footer">
+      <span id="progress"></span>
+      <button id="prev-btn" class="nav-btn" disabled>← Previous</button>
+      <button id="next-btn" class="nav-btn">Next →</button>
+    </footer>
+  </div>
+
+  <script src="modules.js"></script>
+  <script src="app.js"></script>
+</body>
+</html>
