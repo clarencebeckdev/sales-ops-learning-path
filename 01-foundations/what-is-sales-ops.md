@@ -75,7 +75,7 @@ That means:
 
 ## What This Learning Path Will Emphasize
 
-Given your background (Angi/Angie’s List style lead sales, software + digital marketing sales), this repo will focus on:
+Given a background in selling lead generation services and software/digital marketing, this repo will focus on:
 
 - B2B-ish, subscription-style sales motions (even if ACVs are on the lower side)
 - Lead → opportunity flows where lead volume is high and quality varies

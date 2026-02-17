@@ -2,7 +2,7 @@
 
 This repo is a combined **learning notebook** and **portfolio** for transitioning from frontline sales to sales operations.
 
-It’s written from the perspective of someone with experience in selling (Angi/Angie's List–style lead gen, software + digital marketing) who is building out the operations side: process, data, tooling, and reporting.
+It’s written from the perspective of someone with experience in selling lead generation services and software/digital marketing, who is now building out the operations side: process, data, tooling, and reporting.
 
 ## Structure
 
